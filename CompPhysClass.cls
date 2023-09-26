@@ -254,7 +254,7 @@
 		stringstyle		= \ttfamily\color{magenta},
 		commentstyle	= \itshape\color{backcolor},
 		morecomment		= [l][\bfseries\color{backcolor}]{\%\%},
-		morekeywords	= {syms,switch,case,otherwise,ones,class,inline,vectorize,factorial,xlim,ylim,ezplot,pie,ezmesh,ezsurf,ezcontour,ezplot3,solve,double,subs,fsolve,fminsearch,compose,jacobian,int,dblquad,triplequad,limit,finverse,simplify,taylor,symsum,evalin,symengine,matlabFunction,poly2sym,lsqcurvefit,ppval,dsolve,fnval},
+		morekeywords	= {syms,switch,case,otherwise,ones,class,inline,vectorize,factorial,xlim,ylim,ezplot,pie,ezmesh,ezsurf,ezcontour,ezplot3,solve,double,subs,fsolve,fminsearch,compose,jacobian,int,dblquad,triplequad,limit,finverse,simplify,taylor,symsum,evalin,symengine,matlabFunction,poly2sym,lsqcurvefit,ppval,dsolve,fnval,fnplt},
 		literate		=*,
 		literate		=*
 		{^}{\textasciicircum}{1}
@@ -265,7 +265,7 @@
 		stringstyle		= \ttfamily\color{magenta},
 		commentstyle	= \itshape\color{LimeGreen},
 		morecomment		= [l][\bfseries\color{red}]{\%\%},
-		morekeywords	= {syms,switch,case,otherwise,ones,class,inline,vectorize,factorial,xlim,ylim,ezplot,pie,ezmesh,ezsurf,ezcontour,ezplot3,solve,double,subs,fsolve,fminsearch,compose,jacobian,int,dblquad,triplequad,limit,finverse,simplify,taylor,symsum,evalin,symengine,matlabFunction,poly2sym,lsqcurvefit,ppval,dsolve,fnval},
+		morekeywords	= {syms,switch,case,otherwise,ones,class,inline,vectorize,factorial,xlim,ylim,ezplot,pie,ezmesh,ezsurf,ezcontour,ezplot3,solve,double,subs,fsolve,fminsearch,compose,jacobian,int,dblquad,triplequad,limit,finverse,simplify,taylor,symsum,evalin,symengine,matlabFunction,poly2sym,lsqcurvefit,ppval,dsolve,fnval,fnplt},
 		literate		=*,
 		literate		=*
 		{^}{\textasciicircum}{1}
@@ -437,7 +437,7 @@
 	\noindent
 	\begin{minipage}[t!]{0.07\textwidth}
 		\raggedright
-		\includegraphics[width=1.2cm]{\Ginput@path/header/logo.jpg}
+		\includegraphics[width=1.2cm]{header/logo.jpg}
 	\end{minipage}
 	\begin{minipage}[t!]{0.465\textwidth}
 		\raggedright
@@ -456,7 +456,7 @@
 			width=1.02\textwidth,
 			set height=1.2cm,
 			left=\textwidth
-			]{\Ginput@path/header/portrait.jpg}
+			]{header/portrait.jpg}
 		}
 	\end{minipage}
 }

@@ -1,0 +1,146 @@
+%=====================================================================================================================
+\section*{Chủ đề 2: Ma trận, hệ phương trình đại số tuyến tính, trị riêng}
+%=====================================================================================================================
+
+\section*{Mục đích}
+\begin{itemize}
+	\item Thực hành về ma trân:
+	\begin{itemize}
+	\item Phép toán trên ma trận trong Matlab
+	\item \textcolor{blue}{Tính định thức của ma trận bằng khử Gauss}
+	\item \textcolor{blue}{Tính hạng của ma trận bằng khử Gauss} \textcolor{red}{(có tráo hàng*)}
+	\item \textcolor{blue}{Tính ma trận nghịch đảo bằng khử Gauss-Jordan}
+	\end{itemize}
+	\item Thực hành về các phương pháp giải hệ phương trình ĐSTT:
+	\begin{itemize}[label={+}]
+	\item[$\blacktriangleright$] Các phương pháp trực tiếp:
+	\item \textcolor{blue}{Sử dụng định lý Cramer}
+	\item \textcolor{blue}{Phương pháp khử Gauss (Gauss Elimination)}
+	\item \textcolor{blue}{Phương pháp khử Gauss-Jordan (Gauss-Jordan Elimination)}
+	\item \textcolor{red}{Phương pháp khử Gauss có tráo hàng (Gauss Elimination with partial pivoting)*}
+	\item[$\blacktriangleright$] Các phương pháp lặp:
+	\item \textcolor{blue}{Phương pháp lặp Jacobi (Jacobi Iteration)}
+	\item \textcolor{blue}{Phương pháp lặp Gauss-Seidel (Gauss-Seidel Iteration)}
+	\end{itemize}
+	\item Thực hành giải bài toán Trị riêng, Véc tơ riêng:
+	\begin{itemize}[label={+}]
+	\item \textcolor{blue}{Thương Rayleigh (Rayleigh quotient)}
+	\item \textcolor{blue}{Phương pháp lũy thừa (Power method)}
+	\item \textcolor{blue}{Phương pháp lũy thừa nghịch đảo (Inverse power method)}
+	\item \textcolor{red}{Phương pháp lũy thừa nghịch đảo có dịch trị riêng (Inverse power method with shift)*}
+	\item \textcolor{red}{Phương pháp phân tích QR (QR factorization)*}
+	\end{itemize}
+	\item Thực hành các lệnh tương ứng của Matlab và so sánh
+\end{itemize}
+
+\section*{Ví dụ thực hành}
+\begin{enumerate}
+	
+	\np{
+		\item Mảng số và ma trận trong Matlab
+		\lstinputlisting{"code/Matlab/topic2vidu21.m"}
+	}\qquad
+	\np{
+		\item Các lệnh liên quan đến ma trận trong Matlab
+		\lstinputlisting{"code/Matlab/topic2vidu22.m"}
+	}
+	
+	\np{
+		\item Giải hệ PT ĐSTT bằng phương pháp khử Gauss
+		\lstinputlisting{"code/Matlab/topic2vidu23.m"}
+	}\qquad
+	\np{
+		\item Giải hệ PT ĐSTT bằng phương pháp lặp Jacobi
+		\lstinputlisting{"code/Matlab/topic2vidu24.m"}
+	}
+	
+	\np{
+		\item Tìm trị riêng bằng phương pháp lũy thừa
+		\lstinputlisting{"code/Matlab/topic2vidu25.m"}
+	}\qquad
+	\np{
+		\item Tìm trị riêng bằng cách chéo hóa
+		\lstinputlisting{"code/Matlab/topic2vidu26.m"}
+	}
+	
+\end{enumerate}
+
+\section*{Bài tập}
+\begin{enumerate}
+	
+	\item Cho ma trận
+	$A = \mb{2 & -1 & 1 \\ 3 & 1 & -1 \\ 1 & -3 & 2}$
+	\begin{enumerate}
+		\item Dựa trên ví dụ 3, hãy khử Gauss ma trận A. Viết chương trình khử Gauss cho ma trận bất
+		kỳ dưới dạng \textit{function file}.
+		\item Dựa trên kết quả câu a, khử Gauss-Jordan ma trận A. Viết chương trình khử Gauss-Jordan
+		cho ma trận bất kỳ dưới dạng \textit{function file}.
+		\item Tính định thức của ma trận A sử dụng khử Gauss.
+		\item Tính hạng của ma trận A sử dụng khử Gauss \textcolor{red}{(có tráo hàng*)}
+		\item Tính ma trận nghịch đảo của A sử dụng khử Gauss-Jordan.
+		\item So sánh kết quả tính định thức, hạng và ma trận nghịch đảo của A ở trên với kết quả tính
+		bằng các lệnh tương ứng của Matlab từ ví dụ 2.
+	\end{enumerate}
+
+	\item Cho hệ phương trình
+		\begin{equation}
+			\label{eq1}
+			\systeme{2x_1-2x_2+x_3=3, 3x_1+x_2-x_3=7, x_1-3x_2+2x_3=0}
+		\end{equation}
+	\begin{enumerate}
+		\item Dựa trên ví dụ 3, hãy giải hệ \eqref{eq1} bằng phương pháp khử Gauss. Viết chương trình giải hệ PT ĐSTT (số phương trình bằng số ẩn) bất kỳ bằng khử Gauss dưới dạng \textit{function file}.
+		\item Viết chương trình giải \eqref{eq1} bằng phương pháp khử Gauss-Jordan dưới dạng \textit{function file}.
+		\item So sánh kết quả bằng lệnh chia ma trận hoặc nhận với ma trận nghịch đảo trong Matlab.
+	\end{enumerate}
+
+	\item Cho hệ phương trình
+	\begin{equation}
+		\label{eq2}
+		Ax=b\quad\text{với}\quad A=\mb{2&-4&4\\4&-8&7\\-1&4&3},\quad b=\mb{-2\\2\\5}
+	\end{equation}
+	\begin{enumerate}
+		\item Giải hệ \eqref{eq2} bằng phương pháp khử Gauss.
+		\item So sánh với kết quả bằng lệnh nhân với ma trận nghịch đảo trong Matlab.
+		\item[(c*)] Trong quá trình khử Gauss các phần tử trên đường chéo chính có thể bằng 0 sẽ không khử tiếp được.
+		Do đó, ta cần tráo hàng trong quá trình khử. Hãy viết chương trình giải \eqref{eq2} bằng phương pháp khử Gauss có tráo hàng.
+		\item[(d*)] Viết chương trình tìm nghiệm của hệ PT ĐSTT tổng quát sử dụng khử Gauss có tráo cả hàng và cột.
+	\end{enumerate}
+
+	\item Cho hệ phương trình
+	\begin{equation}
+		\label{eq3}
+		\systeme{5x_1-2x_2+3x_3=-1, -3x_1+9x_2+x_3=\;\;2, 2x_1-x_2-7x_3=\;\;3}
+	\end{equation}
+	\begin{enumerate}
+		\item Ví dụ 4 đã giải hệ \eqref{eq3} bằng phương pháp lặp Jacobi với 8 bước lặp. Hãy viết chương trình giải \eqref{eq3} đạt sai số $10^{-9}$.
+		\item So sánh với kết quả bằng lệnh nhân với ma trận nghịch đảo trong Matlab.
+		\item[(c*)] Viết chương trình giải \eqref{eq3} bằng phương pháp lặp Gauss-Seidel với sai số $10^{-9}$. So sánh tốc độ hội tụ với phương pháp Jacobi.
+		\item[(d*)] Phương pháp Jacobi và Gauss-Seidel có giải được các hệ \eqref{eq1} và \eqref{eq2} không? Tại sao?
+	\end{enumerate}
+
+	\item Cho ma trận
+	$A = \mb{2 & -12 \\ 1 & -5}$
+	\begin{enumerate}
+		\item Ví dụ 5 đã tìm được trị riêng lớn nhất và vector riêng tương ứng của $A$ bằng phương		pháp lũy thừa. Hãy viết chương trình tìm trị riêng nhỏ nhất và vector riêng tương ứng của $A$ bằng phương pháp lũy thừa nghịch đảo.
+		\item So sánh kết quả với chương trình tìm trị riêng-vector riêng bằng chéo hóa ma trận ở ví dụ 6.
+	\end{enumerate}
+	\item Cho ma trận
+	$A = \mb{7&-4&2\\16&-9&6\\8&-2&5}$
+	\begin{enumerate}
+		\item Sử dụng phương pháp lũy thừa nghịch đảo có dịch trị riêng để tìm tất cả các trị riêng của $A$.
+		\item Sử dụng phương pháp phân tích QR để tìm tất cả các trị riêng của $A$.
+		\item So sánh với kết quả từ Matlab.
+	\end{enumerate}
+
+	\item Cho hai ma trận 
+	$A = \begin{bmatrix}[l]1&2\\2&4-10^{-20}\end{bmatrix}$ và 
+	$B = \begin{bmatrix}[l]1&2\\2&4+10^{-20}\end{bmatrix}$
+	\begin{enumerate}
+		\item Áp dụng phương pháp khử Gauss lên ma trận $A$ và $B$. Giải thích sự khác nhau của các kết quả thu được.
+		\item Tính các trị riêng của ma trận $A$ và $B$. Giải thích sự khác nhau của các kết quả thu được.
+	\end{enumerate}
+
+	
+\end{enumerate}
+
+

@@ -1,0 +1,212 @@
+\head{Phần 5}
+
+\section*{Nội dung thực hành}
+\begin{itemize}
+	\item Con trỏ: \textit{khai báo con trỏ, thao tác trên vùng nhớ của biến khác thông qua con trỏ}
+	\item Cấp phát bộ nhớ động: \textit{cấp phát/giải phóng bộ nhớ bằng các hàm, quản lý bộ nhớ được cấp phát bằng con trỏ}
+	\item Sử dụng con trỏ và các hàm cấp phát bộ nhớ động cho mảng: \textit{cấp phát bộ nhớ, xuất/nhập và thao tác với các phần tử của mảng, giải phóng bộ nhớ được cấp}
+\end{itemize}
+
+
+\section*{Ví dụ}
+\begin{enumerate}
+	
+	\item Thay đổi dữ liệu của các biến bằng con trỏ
+	\lstinputlisting{code/C/contro_bien.c}
+	
+	\begin{minipage}[t]{0.42\textwidth}
+		\item Tính trung bình cộng (TBC) của $n$ số
+		\lstinputlisting{code/C/contro_tbc.c}
+	\end{minipage}\qquad
+	\begin{minipage}[t]{0.53\textwidth}
+		\item Tìm phần tử lớn nhất trong ma trận có $m$ hàng, $n$ cột
+		\lstinputlisting{code/C/contro_max.c}
+	\end{minipage}
+	
+\end{enumerate}
+
+\pagebreak
+\section*{Bài tập}
+\note{Lưu ý}{Các bài tập dưới đây bắt buộc phải sử dụng kiến thức về \textit{con trỏ/địa chỉ/cấp phát bộ nhớ động}!}
+
+\begin{enumerate}
+	
+	%===================================== POINTER =====================================
+	
+	\item \problemi[.56]{Cho số $n$. Hãy cấp phát bộ nhớ động cho mảng $a$ có $n$ phần tử là các số có kiểu \textit{int}, sau đó nhập vào các giá trị của mảng $a$ rồi in ra giá trị và địa chỉ của các phần tử của mảng.}
+	{	dòng 1 là số $n$\\
+		dòng 2 là $n$ số tương ứng với giá trị các phần tử của mảng $a$}
+	{	dòng 1 là $n$ số tương ứng với giá trị các phần tử của mảng $a$\\
+		dòng 2 là $n$ số tương ứng với địa chỉ các phần tử của mảng $a$}
+	{3\\4 2 7}
+	{4 2 7\\82656 82660 82664}
+	\memo{Yêu cầu}{Thay đổi kiểu dữ liệu của các phần tử từ \textit{int} thành \textit{short}, chạy lại chương trình và nhận xét kết quả thu được!}
+	
+	\item \problemi[.56]{Cho một ma trận có $m$ hàng $n$ cột. Hãy cấp phát bộ nhớ động cho mảng $a$ chứa các phần tử kiểu \textit{int} của ma trận đó. Nhập vào các giá trị của mảng $a$ rồi in ra giá trị và địa chỉ của các phần tử của mảng (theo hàng và cột).}
+	{dòng 1 là 2 số $m$ và $n$\\
+		$m$ dòng tiếp, mỗi dòng chứa $n$ số là các phần tử ma trận}
+	{$m$ dòng, mỗi dòng chứa $n$ số là giá trị các phần tử ma trận\\
+		$m$ dòng tiếp, mỗi dòng chứa $n$ số là địa chỉ các phần tử ma trận}
+	{2 3\\4 2 7\\3 5 1}
+	{4 2 7\\3 5 1\\93824 93828 93832\\93836 93840 93844}
+	\memo{Yêu cầu}{Nhận xét về sự sắp xếp các phần tử của mảng hai chiều trong bộ nhớ máy tính!}
+	
+	\item \problemi[.56]{Cho một mảng có $n$ phần tử. Xóa một phần tử ở một vị trí được chọn trong mảng.}
+	{dòng 1 là số nguyên $n$\\
+		dòng 2 là $n$ số tương ứng với giá trị các phần tử của mảng\\
+		dòng 3 là 1 số chỉ vị trí phần tử bị xóa}
+	{$n-1$ số là các phần tử của mảng sau khi đã xóa bớt}
+	{7\\5 3 6 2 7 1 4\phantom{\qquad}\\5}
+	{5 3 6 2 1 4}
+	\memo{Gợi ý}{Sử dụng hàm \textit{realloc} của thư viện \textit{stdlib}.}
+	\memo{Mở rộng bài toán}{Tương tự, thực hiện thao tác thêm một phần tử vào mảng.}
+	
+	\item \problemi[.56]{Cho một mảng có $n$ phần tử. Hãy cấp phát thêm bộ nhớ cho mảng đó: từ $n$ ô nhớ cho $n$ phần tử tăng lên thành $2n$ ô nhớ cho $2n$ phần tử. Sau đó, mỗi phần tử của mảng ban đầu sẽ có thêm một bản sao có vị trí ngay sát phần tử đó trong mảng. In ra mảng đó sau khi thực hiện các thao tác trên.}
+	{dòng 1 là số $n$\\
+		dòng 2 là $n$ số tương ứng với giá trị các phần tử của mảng}
+	{$2n$ số là các phần tử của mảng sau khi đã thực hiện thao tác}
+	{3\\4 2 7}
+	{4 4 2 2 7 7}
+	\memo{Gợi ý}{Sử dụng hàm \textit{realloc} của thư viện \textit{stdlib}.}
+	
+	\item \problemi[.56]{Cho một mảng có $n$ phần tử. Sắp xếp lại các phần tử của mảng đó theo thứ tự tăng dần.}
+	{dòng 1 là số nguyên $n$\\
+		dòng 2 là $n$ số nguyên}
+	{$n$ số là các phần tử của mảng sau khi đã sắp xếp}
+	{7\\5 3 6 2 7 1 4}
+	{1 2 3 4 5 6 7}
+	
+	% Trace ma tran
+	\item \problemi{\textcolor{green}{(\textit{Algebra})}\\ 
+		Cho một ma trận có $m\times n$ phần tử. Tính tổng các phần tử trên đường chéo chính của ma trận đó.}
+	{dòng 1 là 2 số $m$ và $n$\\
+		$m$ dòng tiếp, mỗi dòng chứa $n$ số là các phần tử của ma trận}
+	{1 số duy nhất là tổng các phần tử trên đường chéo chính}
+	{3 4\\2 3 5 0\\8 7 3 9\\1 4 2 6}
+	{11}
+	
+	% Transpose ma tran
+	\item \problemi{\textcolor{green}{(\textit{Algebra})}\\ 
+		Cho một ma trận có $m\times n$ phần tử. Hãy chuyển vị ma trận đó.}
+	{dòng 1 là 2 số $m$ và $n$\\
+		$m$ dòng tiếp, mỗi dòng chứa $n$ số là các phần tử của ma trận}
+	{$n$ dòng, mỗi dòng chứa $m$ số là các phần tử của ma trận sau khi chuyển vị}
+	{3 4\\2 3 5 0\\8 7 3 9\\1 4 2 6}
+	{2 8 1\\3 7 4\\5 3 2\\0 9 6}
+	
+	% Nhan ma tran
+	\item \problemi{\textcolor{green}{(\textit{Algebra})}\\
+		Cho ma trận $a$ có $m$ hàng và $n$ cột, và ma trận $b$ có $p$ hàng $q$ cột. Xét xem hai ma trận $a$ và $b$ có thực hiện được phép nhân ma trận (đại số tuyến tính) không, nếu có thì thực hiện phép toán và in ra kết quả, nếu không thì in ra dòng chữ ``INVALID''.}
+	{dòng 1 là 2 số $m$ và $n$\\
+		$m$ dòng tiếp, mỗi dòng chứa $n$ số là các phần tử ma trận $a$\\
+		dòng tiếp là 2 số $p$ và $q$\\
+		$p$ dòng tiếp, mỗi dòng chứa $q$ số là các phần tử ma trận $b$}
+	{đáp án của bài toán}
+	{1 2\\ 2 1\\ 2 3\\ 1 2 3\\ 4 5 6}
+	{6 9 12}
+	
+	\item \problemi{\textcolor{red}{(\textit{không bắt buộc})}\\ 
+		Cho một bảng số có $m$ hàng, hàng thứ $i$ có $n_i$ phần tử (các số $n_i$ không nhất thiết bằng nhau). Xóa một hàng được chọn trong bảng rồi in ra các giá trị bảng đó.}
+	{dòng 1 là số $m$\\
+		dòng 2 là $m$ số $n_i$ ứng với số phần tử hàng thứ $i$\\
+		$m$ dòng tiếp, dòng thứ $i$ chứa $n_i$ số là các phần tử của bảng\\
+		dòng cuối là 1 số chỉ vị trí dòng bị xóa}
+	{$m-1$ dòng, dòng thứ $i$ chứa $n_i$ số là các phần tử của bảng sau khi đã xóa bớt}
+	{3\\3 4 2\\2 3 5\\8 7 3 9\\1 4\\2}
+	{2 3 5\\1 4}
+	\memo{Gợi ý}{Nên sử dụng con trỏ ``đa cấp'' (con trỏ trỏ vào con trỏ) để lưu giữ dữ liệu. Như vậy, thao tác xóa một hàng của bảng sẽ đơn giản tương tự như bài xóa một phần tử của mảng trước đó.}
+	
+	\item \problemi[.42]{\textcolor{red}{(\textit{không bắt buộc})}\\ 
+		Thảm Sierpi\'{n}ski (\link{https://en.wikipedia.org/wiki/Sierpi\%C5\%84ski_carpet}{Sierpi\'{n}ski carpet}) là công trình khoa học về hình học tự đồng dạng của nhà toán học Wac\l{}aw Sierpi\'{n}ski. Thảm này được tạo ra như sau: Đầu tiên cho một hình vuông (cấp 0), ta sẽ nhân hình vuông này thành 9 phần bằng nhau ($3\times3$), rồi xóa phần chính giữa thì được hình vuông mới (cấp 1). Tiếp theo, ta lại nhân hình vuông cấp 1 đó thành 9 phần bằng nhau, rồi xóa đi phần chính giữa của chúng để được hình vuông mới (cấp 2). Lặp lại việc này vô hạn lần (cấp $n$), ta thu được tấm thảm Sierpi\'{n}ski.\\
+		Giả sử ký tự `*' mô tả hình vuông cấp 0. Cho $n$ là số cấp (độ phức tạp) của tấm thảm. In ra tấm thảm Sierpi\'{n}ski cấp $n$.\\
+		\begin{figure}[ht!]
+			\centering
+			\subfloat[\centering Cấp 0]
+			{\centering
+				\resizebox{.2\textwidth}{!}{
+					\begin{tikzpicture}
+						\sierpinskicarpet[
+						foreground/.style={fill=white},
+%						background/.style={top color=blue, bottom color=red}
+						background/.style={top color=blue, bottom color=blue}
+						]{0}
+			\end{tikzpicture}}}\quad
+			\subfloat[\centering Cấp 1]
+			{\centering
+				\resizebox{.2\textwidth}{!}{
+					\begin{tikzpicture}
+						\sierpinskicarpet[
+						foreground/.style={fill=white},
+						background/.style={top color=blue, bottom color=blue}
+						]{1}
+			\end{tikzpicture}}}\quad
+			\subfloat[\centering Cấp 2]
+			{\centering
+				\resizebox{.2\textwidth}{!}{
+					\begin{tikzpicture}
+						\sierpinskicarpet[
+						foreground/.style={fill=white},
+						background/.style={top color=blue, bottom color=blue}
+						]{2}
+			\end{tikzpicture}}}\quad
+			\subfloat[\centering Cấp 3]
+			{\centering
+				\resizebox{.2\textwidth}{!}{
+					\begin{tikzpicture}
+						\sierpinskicarpet[
+						foreground/.style={fill=white},
+						background/.style={top color=blue, bottom color=blue}
+						]{3}
+			\end{tikzpicture}}}
+		\end{figure}
+	}
+	{1 số $n$ duy nhất là cấp của tấm thảm}
+	{các dòng mô tả tấm thảm cấp $n$}
+	{3}
+	{***************************\vspace{-2.2mm}\\
+		*\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}*\vspace{-2.2mm}\\
+		***************************\vspace{-2.2mm}\\
+		***\phantom{***}******\phantom{***}******\phantom{***}***\vspace{-2.2mm}\\
+		*\phantom{*}*\phantom{***}*\phantom{*}**\phantom{*}*\phantom{***}*\phantom{*}**\phantom{*}*\phantom{***}*\phantom{*}*\vspace{-2.2mm}\\
+		***\phantom{***}******\phantom{***}******\phantom{***}***\vspace{-2.2mm}\\
+		***************************\vspace{-2.2mm}\\
+		*\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}*\vspace{-2.2mm}\\
+		***************************\vspace{-2.2mm}\\
+		*********\phantom{*********}*********\vspace{-2.2mm}\\
+		*\phantom{*}**\phantom{*}**\phantom{*}*\phantom{*********}*\phantom{*}**\phantom{*}**\phantom{*}*\vspace{-2.2mm}\\
+		*********\phantom{*********}*********\vspace{-2.2mm}\\
+		***\phantom{***}***\phantom{*********}***\phantom{***}***\vspace{-2.2mm}\\
+		*\phantom{*}*\phantom{***}*\phantom{*}*\phantom{*********}*\phantom{*}*\phantom{***}*\phantom{*}*\vspace{-2.2mm}\\
+		***\phantom{***}***\phantom{*********}***\phantom{***}***\vspace{-2.2mm}\\
+		*********\phantom{*********}*********\vspace{-2.2mm}\\
+		*\phantom{*}**\phantom{*}**\phantom{*}*\phantom{*********}*\phantom{*}**\phantom{*}**\phantom{*}*\vspace{-2.2mm}\\
+		*********\phantom{*********}*********\vspace{-2.2mm}\\
+		***************************\vspace{-2.2mm}\\
+		*\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}*\vspace{-2.2mm}\\
+		***************************\vspace{-2.2mm}\\
+		***\phantom{***}******\phantom{***}******\phantom{***}***\vspace{-2.2mm}\\
+		*\phantom{*}*\phantom{***}*\phantom{*}**\phantom{*}*\phantom{***}*\phantom{*}**\phantom{*}*\phantom{***}*\phantom{*}*\vspace{-2.2mm}\\
+		***\phantom{***}******\phantom{***}******\phantom{***}***\vspace{-2.2mm}\\
+		***************************\vspace{-2.2mm}\\
+		*\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}**\phantom{*}*\vspace{-2.2mm}\\
+		***************************
+	}
+	\memo{Mở rộng bài toán}{Tìm ra quy luật và vẽ lại tam giác Sierpi\'{n}ski (\link{https://en.wikipedia.org/wiki/Sierpi\%C5\%84ski_triangle}{Sierpi\'{n}ski triangle}).}
+	
+	%====================================== STRING =====================================
+	
+	% SO LA MA
+	
+	% MMASS (spoj)
+	
+	% PALINDROME
+	
+	%==================================== RECURSION ====================================
+	
+	% SUDOKU
+	
+	
+\end{enumerate}
+
+
+
