@@ -84,7 +84,9 @@
 
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
+\RequirePackage{mathrsfs} 			% Support use of Ralph Smith's Formal Script font in mathematics
 \RequirePackage{systeme}			% For system of equations
+\RequirePackage{mhchem}				% For chemical equations
 
 \RequirePackage[miktex]{gnuplottex}
 \RequirePackage{pgfplots}			% For drawing high-quality function plots

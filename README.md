@@ -17,7 +17,7 @@ For the second example (`archive/test2.tex`), try typesetting `compile.tex` with
 
 	\begin{document}
 		\infohead
-		\input{archive/test2.tex}
+		\input{archive/test2}
 	\end{document}
 
 The result should look like `test2.pdf`.
@@ -43,7 +43,7 @@ shows the title of the document.
 
 	\link{ URL }{ CONTENT }
 
-similar to `href` command but with style.
+similar to `\href` command but with style.
 
 	\memo{ CLASSIFIER }{ CONTENT }
 
