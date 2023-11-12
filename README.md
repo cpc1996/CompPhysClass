@@ -45,7 +45,7 @@ shows the title of the document.
 
 similar to `\href` command but with style.
 
-	\memo{ CLASSIFIER }{ CONTENT }
+	\memo[ CLASSIFIER ]{ CONTENT }
 
 shows important remark. Command `\note` is similar to `\memo` but with customizable mark symbol. In `\memo`, 'hand' symbol (`\hand`) is default.
 
@@ -53,6 +53,6 @@ shows important remark. Command `\note` is similar to `\memo` but with customiza
 
 makes matrix. Similar commands: `\mb`, `\mv`.
 
-	\np{ SIZE }{ CONTENT }
+	\np[ SIZE ]{ CONTENT }
 
 creates minipage. Default `SIZE` is `.47` (textwidth).
